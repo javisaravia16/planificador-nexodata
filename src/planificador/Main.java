@@ -3,6 +3,8 @@ package planificador;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
+import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * PSP · Tema 2 · Simulador de planificación para NexoData
@@ -44,19 +46,32 @@ public class Main {
             System.exit(1);
         }
 
-        System.out.println("Fichero: " + fichero + " | algoritmo: " + algoritmo
-                + " | quantum: " + quantum + " | traza: " + traza);
-
-        // TODO (tareas 1 a 3): a partir de aquí, lee los procesos del fichero,
-        // simula el algoritmo o algoritmos pedidos y muestra los resultados.
-        // Cuando lo tengas, borra el println de arriba y este comentario.
 
         try {
-            for (Proceso p : LectorProcesos.leer(fichero)) {
-                System.out.println(p);
+            List<Proceso> procesos = LectorProcesos.leer(fichero);
+
+            List<Planificador> planificadores = new ArrayList<>();
+            switch (algoritmo) {
+                case "fcfs" -> planificadores.add(new FCFS());
+                case "sjf" -> planificadores.add(new SJF());
+                case "rr" -> planificadores.add(new RoundRobin(quantum));
+                case "todos" -> {
+                    planificadores.add(new FCFS());
+                    planificadores.add(new SJF());
+                    planificadores.add(new RoundRobin(quantum));
+                }
             }
-        } catch (Exception e) {
+
+            for (Planificador p : planificadores) {
+                Resultado r = p.simular(procesos);   // simular() trabaja con copias
+                Informe.imprimir(r, traza);
+            }
+        } catch (IOException e) {
+            System.err.println("No se pudo leer el fichero: " + e.getMessage());
+            System.exit(1);
+        } catch (IllegalArgumentException e) {
             System.err.println("Error: " + e.getMessage());
+            System.exit(1);
         }
     }
 }
