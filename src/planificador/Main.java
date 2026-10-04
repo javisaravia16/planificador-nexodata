@@ -50,6 +50,13 @@ public class Main {
         // TODO (tareas 1 a 3): a partir de aquí, lee los procesos del fichero,
         // simula el algoritmo o algoritmos pedidos y muestra los resultados.
         // Cuando lo tengas, borra el println de arriba y este comentario.
-    }
 
+        try {
+            for (Proceso p : LectorProcesos.leer(fichero)) {
+                System.out.println(p);
+            }
+        } catch (Exception e) {
+            System.err.println("Error: " + e.getMessage());
+        }
+    }
 }
