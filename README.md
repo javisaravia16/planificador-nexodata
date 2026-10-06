@@ -26,10 +26,18 @@ En Program arguments escribo datos/ejemplo_clase.csv rr 2 --traza.
 En Working directory pongo la carpeta del proyecto. Es importante: si no, el programa no encuentra el archivo de datos y avisa de que no lo encuentra.
 Pulso el botón verde de ejecutar.
 
+<img width="1289" height="290" alt="image" src="https://github.com/user-attachments/assets/6d2fa991-1738-4202-bf5d-087630f8e31a" />
 
 
 ## 3. Diseño
-
+Main, recibe lo que escribe el usuario y lo comprueba
+LectorProcesos: lee el archivo de datos.
+Proceso: Guarda los datos de un trabajo y lo que va pasando con el, con eso calcula su espera y tiempo total
+EstadoProceso: la lista de estados posibles
+Planificador: el bucle de simulacion, que es igual para los tres metodos
+FCFSM, SFJ y RodundRobin: deciden a quien le toca entrar y cuando hay que quitarle el procesador a quien lo esta usando
+Resultado y transicion: guardan lo que sale de la simulacion, como es el diagrama, los tiempos y los cambios de estado,
+Informe: lo enseña por pantalla
 
 ## 4. Verificación (tarea 4)
 
