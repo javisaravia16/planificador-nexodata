@@ -3,7 +3,7 @@
 > PSP Tema 2. Procesos. 2.º A DAM · **Javier Saravia Ogazon**
 
 
-## 1. ¿?¿?=)(/(/%&$·*^^¨Ñ_^ÑOJKJGE·!···ª%(/&()/=???''0998872661987562ñ`+´ñ`ñ+`ñññl##@#~@#€¬#@~##¬@#~¬@¬¬¬#¬##¬Que hace?
+## 1. ¿Que hace?
 
 El programa lee un archivo con una lista de trabajos (el nombre, cuándo llegan y cuánto tiempo necesitan) y simula en qué orden los atendería un ordenador con tres métodos distintos: FCFS (por orden de llegada), SJF (primero el más corto) y Round Robin (por turnos). Para cada método enseña un diagrama de quién usa el procesador en cada minuto, una tabla con cuánto espera y cuánto tarda cada trabajo, y cuántas veces se cambia de trabajo. Con la opción --traza también cuenta paso a paso cómo va cambiando el estado de cada trabajo.
 
