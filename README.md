@@ -39,6 +39,8 @@ FCFSM, SFJ y RodundRobin: deciden a quien le toca entrar y cuando hay que quitar
 Resultado y transicion: guardan lo que sale de la simulacion, como es el diagrama, los tiempos y los cambios de estado,
 Informe: lo enseña por pantalla
 
+Lo organicé así para no repetir código
+
 ## 4. Verificación (tarea 4)
 
 ### 4.1 verificacion.csv resuelto a mano
@@ -50,6 +52,8 @@ Si, la salida del programa coincide con mi resolucion a mano, tanto en FCFS como
 ### 4.3 hueco.csv
 Entre los instantes 2 y 5 no hay ningún trabajo que hacer. El proceso X termina en el instante 2, y los siguientes (Y y Z) no llegan hasta el 5. Durante esas tres unidades la CPU se queda parada, esperando. El programa no se atasca ni se salta ese tiempo, deja pasar el reloj sin que nadie use la CPU. En el diagrama se ve como un guion - en las columnas 2, 3 y 4. Esos tres huecos no se cuentan como espera de ningún proceso, porque ninguno había llegado todavía.
 
+
+### 5. Analisi y recomendacion de NexoData
 | nocturno.csv | Retorno medio | Espera media | Respuesta media | Cambios de contexto |
 |---|---|---|---|---|
 | FCFS | 14,00 | 10,00 | 10,00 | 5 |
@@ -57,8 +61,6 @@ Entre los instantes 2 y 5 no hay ningún trabajo que hacer. El proceso X termina
 | RR q=1 | 12,33 | 8,33 | 1,50 | 22 |
 | RR q=2 | 1217 | 8,17 | 2,83 | 11 |
 | RR q=4 | 14,50 | 10,50 | 6,17 | 8 |
-
-### 5. Analisi y recomendacion de NexoData
 
 1. SJF, con 7,67 minutos. Gana porque deja pasar primero a los procesos cortos: LOGS (1 min), INFORME y AVISOS (2 min) y RUTAS (4 min) salen antes que BACKUP (6 min)
 2. 14 minutos. Llega en el instante 3 y no entra hasta el 17, a pesar de que solo necesita 1 minuto. Se llama efecto convoy. Lo provoca sobre todo FACTURA, que llega primero y ocupa la CPU 9 minutos seguidos
